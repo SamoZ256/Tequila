@@ -10,9 +10,22 @@
 		D8D0456B2CEB1AAC00FAFCC5 /* Tequila.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Tequila.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D8C146C22CF1F277002E13FF /* Exceptions for "Tequila" folder in "Tequila" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			publicHeaders = (
+				Tequila.h,
+			);
+			target = D8D0456A2CEB1AAC00FAFCC5 /* Tequila */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D8D0456D2CEB1AAC00FAFCC5 /* Tequila */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D8C146C22CF1F277002E13FF /* Exceptions for "Tequila" folder in "Tequila" target */,
+			);
 			path = Tequila;
 			sourceTree = "<group>";
 		};
