@@ -42,6 +42,7 @@ typedef struct __TqlContext {
     PFN_tqlDefaultAppDelegateCreate _Nullable defaultAppDelegateCreateCallback;
     PFN_tqlDefaultViewControllerCreate _Nullable defaultViewControllerCreateCallback;
     PFN_tqlApplicationDidFinishLaunching _Nullable applicationDidFinishLaunchingCallback;
+    PFN_tqlViewDidLoad _Nullable viewDidLoadCallback;
 } __TqlContext;
 
 extern __TqlContext g_context;

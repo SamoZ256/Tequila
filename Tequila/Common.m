@@ -43,3 +43,7 @@ void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreat
 void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {
     g_context.applicationDidFinishLaunchingCallback = callback;
 }
+
+void tqlSetViewDidLoadCallback(PFN_tqlViewDidLoad _Nonnull callback) {
+    g_context.viewDidLoadCallback = callback;
+}

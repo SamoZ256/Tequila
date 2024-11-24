@@ -17,5 +17,6 @@ void tqlSetDefaultAppDelegateCreateCallback(PFN_tqlDefaultAppDelegateCreate _Non
 void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreate _Nonnull callback) {}
 
 void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {}
+void tqlSetViewDidLoadCallback(PFN_tqlViewDidLoad _Nonnull callback) {}
 
 int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]) { return 0; }

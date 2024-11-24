@@ -18,8 +18,7 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Direct call
-    [self->obj->host viewDidLoad];
+    g_context.viewDidLoadCallback(self->obj);
     
     // HACK
     self.view.backgroundColor = [UIColor yellowColor];
