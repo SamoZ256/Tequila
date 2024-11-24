@@ -13,4 +13,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef struct __TqlContext {
+    PFN_defaultAppDelegateCreate _Nullable defaultAppDelegateCreateCallback;
+} __TqlContext;
+
+extern __TqlContext g_context;
+
+TqlObject* _Nonnull __tqlObjectAllocate(void);
+
 #endif /* Common_h */
