@@ -10,7 +10,9 @@
 
 #include "Common.h"
 
-@interface __TqlViewController : UIViewController
+@interface __TqlViewController : UIViewController {
+    TqlObject* _Nonnull obj;
+}
 
 @end
 

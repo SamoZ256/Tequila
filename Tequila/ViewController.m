@@ -13,10 +13,15 @@
 
 @implementation __TqlViewController
 
+DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    // Direct call
+    [self->obj->host viewDidLoad];
+    
+    // HACK
     self.view.backgroundColor = [UIColor yellowColor];
 }
 

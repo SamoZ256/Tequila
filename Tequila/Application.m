@@ -13,26 +13,7 @@
 
 @implementation __TqlApplicationDelegate
 
-- (instancetype)initWithObject:(TqlObject* _Nonnull)obj {
-    self = [super init];
-    
-    self->obj = obj;
-    self->obj->impl = self;
-    
-    return self;
-}
-
-// For cases when UIKit manually creates this class
-- (instancetype)init {
-    self = [super init];
-    
-    // This instance was created by UIKit, which means we need to create the Tequila object manually
-    self->obj = __tqlObjectAllocate();
-    self->obj->host = g_context.defaultAppDelegateCreateCallback(self->obj);
-    self->obj->impl = self;
-    
-    return self;
-}
+DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultAppDelegateCreateCallback)
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
     g_context.applicationDidFinishLaunchingCallback(self->obj);

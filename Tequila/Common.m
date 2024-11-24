@@ -7,10 +7,14 @@
 
 #include "Common.h"
 
-__TqlContext g_context = {NULL, NULL};
+__TqlContext g_context = {NULL, NULL, NULL};
 
 TqlObject* _Nonnull __tqlObjectAllocate(void) {
-    return malloc(sizeof(TqlObject));
+    TqlObject* obj = malloc(sizeof(TqlObject));
+    obj->host = NULL;
+    obj->impl = NULL;
+    
+    return obj;
 }
 
 TqlObject* _Nonnull tqlObjectCreate(id _Nonnull host) {
@@ -25,10 +29,17 @@ void tqlObjectFree(TqlObject* _Nonnull obj) {
 }
 
 // Callbacks
+
+// Default create
 void tqlSetDefaultAppDelegateCreateCallback(PFN_tqlDefaultAppDelegateCreate _Nonnull callback) {
     g_context.defaultAppDelegateCreateCallback = callback;
 }
 
+void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreate _Nonnull callback) {
+    g_context.defaultViewControllerCreateCallback = callback;
+}
+
+// Methods
 void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {
     g_context.applicationDidFinishLaunchingCallback = callback;
 }
