@@ -54,7 +54,5 @@
 @end
 
 int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]) {
-    //[[NSClassFromString(@"AppDelegate") alloc] init];
-    
     return UIApplicationMain(argc, argv, nil, NSStringFromClass([__TqlApplicationDelegate class]));
 }
