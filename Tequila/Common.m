@@ -7,7 +7,7 @@
 
 #include "Common.h"
 
-__TqlContext g_context = {NULL};
+__TqlContext g_context = {NULL, NULL};
 
 TqlObject* _Nonnull __tqlObjectAllocate(void) {
     return malloc(sizeof(TqlObject));
@@ -25,6 +25,10 @@ void tqlObjectFree(TqlObject* _Nonnull obj) {
 }
 
 // Callbacks
-void tqlSetDefaultAppDelegateCreateCallback(PFN_defaultAppDelegateCreate _Nonnull defaultAppDelegateCreateCallback) {
-    g_context.defaultAppDelegateCreateCallback = defaultAppDelegateCreateCallback;
+void tqlSetDefaultAppDelegateCreateCallback(PFN_tqlDefaultAppDelegateCreate _Nonnull callback) {
+    g_context.defaultAppDelegateCreateCallback = callback;
+}
+
+void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {
+    g_context.applicationDidFinishLaunchingCallback = callback;
 }

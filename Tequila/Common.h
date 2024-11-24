@@ -14,7 +14,8 @@
 #import <UIKit/UIKit.h>
 
 typedef struct __TqlContext {
-    PFN_defaultAppDelegateCreate _Nullable defaultAppDelegateCreateCallback;
+    PFN_tqlDefaultAppDelegateCreate _Nullable defaultAppDelegateCreateCallback;
+    PFN_tqlApplicationDidFinishLaunching _Nullable applicationDidFinishLaunchingCallback;
 } __TqlContext;
 
 extern __TqlContext g_context;
