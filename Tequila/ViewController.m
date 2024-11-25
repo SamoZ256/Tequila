@@ -24,12 +24,16 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
     [super viewDidLoad];
     
     // HACK
-    self.view.layer.backgroundColor = [[UIColor redColor] CGColor];
+    //self.view.layer.backgroundColor = [[UIColor redColor] CGColor];
     
     g_context.viewControllerViewDidLoadCallback(self->obj);
 }
 
 @end
+
+void tqlViewControllerCreate(TqlObject* _Nonnull obj) {
+    (void)[[__TqlViewController alloc] initWithObject:obj];
+}
 
 void tqlViewControllerSetView(TqlObject* _Nonnull obj, TqlObject* _Nonnull view) {
     [obj->impl setView:view->impl];

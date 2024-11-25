@@ -44,6 +44,7 @@ void tqlSetViewControllerLoadViewCallback(PFN_tqlViewControllerLoadView _Nonnull
 int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]);
 
 // View controller
+void tqlViewControllerCreate(TqlObject* _Nonnull obj);
 void tqlViewControllerSetView(TqlObject* _Nonnull obj, TqlObject* _Nonnull view);
 
 // View
