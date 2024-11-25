@@ -37,4 +37,7 @@ void tqlSetViewDidLoadCallback(PFN_tqlViewDidLoad _Nonnull callback);
 // API
 
 // Application
-extern int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]);
+int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]);
+
+// Color
+void tqlColorYellowCreate(TqlObject* _Nonnull obj);
