@@ -6,6 +6,7 @@
 //
 
 #include "ViewController.h"
+#include "View.h"
 
 @interface __TqlViewController ()
 
@@ -15,13 +16,21 @@
 
 DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
 
+- (void)loadView {
+    g_context.viewControllerLoadViewCallback(self->obj);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    g_context.viewDidLoadCallback(self->obj);
-    
     // HACK
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.layer.backgroundColor = [[UIColor redColor] CGColor];
+    
+    g_context.viewControllerViewDidLoadCallback(self->obj);
 }
 
 @end
+
+void tqlViewControllerSetView(TqlObject* _Nonnull obj, TqlObject* _Nonnull view) {
+    [obj->impl setView:view->impl];
+}

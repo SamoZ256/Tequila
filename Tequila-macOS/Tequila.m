@@ -25,12 +25,20 @@ void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreat
 void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {}
 
 // View controller
-void tqlSetViewDidLoadCallback(PFN_tqlViewDidLoad _Nonnull callback) {}
+void tqlSetViewControllerViewDidLoadCallback(PFN_tqlViewControllerViewDidLoad _Nonnull callback) {}
+void tqlSetViewControllerLoadViewCallback(PFN_tqlViewControllerLoadView _Nonnull callback) {}
 
 // API
 
 // Application
 int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]) { return 0; }
+
+// View controller
+void tqlViewControllerSetView(TqlObject* _Nonnull obj, TqlObject* _Nonnull view) {}
+
+// View
+void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame) {}
+CALayer* _Nonnull tqlViewGetLayer(TqlObject* _Nonnull obj) { return nil; }
 
 // Color
 void tqlColorYellowCreate(TqlObject* _Nonnull obj) {}

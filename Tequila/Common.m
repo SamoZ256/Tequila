@@ -7,7 +7,7 @@
 
 #include "Common.h"
 
-__TqlContext g_context = {NULL, NULL, NULL};
+__TqlContext g_context = {NULL, NULL, NULL, NULL, NULL};
 
 TqlObject* _Nonnull __tqlObjectAllocate(void) {
     TqlObject* obj = malloc(sizeof(TqlObject));
@@ -40,10 +40,17 @@ void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreat
 }
 
 // Methods
+
+// Application
 void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {
     g_context.applicationDidFinishLaunchingCallback = callback;
 }
 
-void tqlSetViewDidLoadCallback(PFN_tqlViewDidLoad _Nonnull callback) {
-    g_context.viewDidLoadCallback = callback;
+// View controller
+void tqlSetViewControllerViewDidLoadCallback(PFN_tqlViewControllerViewDidLoad _Nonnull callback) {
+    g_context.viewControllerViewDidLoadCallback = callback;
+}
+
+void tqlSetViewControllerLoadViewCallback(PFN_tqlViewControllerLoadView _Nonnull callback) {
+    g_context.viewControllerLoadViewCallback = callback;
 }

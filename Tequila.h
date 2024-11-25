@@ -5,6 +5,8 @@
 //  Created by Samuliak on 23/11/2024.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 typedef struct TqlObject {
     id _Nullable host;
     id _Nullable impl;
@@ -30,14 +32,23 @@ typedef void (*PFN_tqlApplicationDidFinishLaunching)(TqlObject* _Nonnull obj); /
 void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback);
 
 // View controller
-typedef void (*PFN_tqlViewDidLoad)(TqlObject* _Nonnull obj);
+typedef void (*PFN_tqlViewControllerViewDidLoad)(TqlObject* _Nonnull obj);
+typedef void (*PFN_tqlViewControllerLoadView)(TqlObject* _Nonnull obj);
 
-void tqlSetViewDidLoadCallback(PFN_tqlViewDidLoad _Nonnull callback);
+void tqlSetViewControllerViewDidLoadCallback(PFN_tqlViewControllerViewDidLoad _Nonnull callback);
+void tqlSetViewControllerLoadViewCallback(PFN_tqlViewControllerLoadView _Nonnull callback);
 
 // API
 
 // Application
 int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]);
+
+// View controller
+void tqlViewControllerSetView(TqlObject* _Nonnull obj, TqlObject* _Nonnull view);
+
+// View
+void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame);
+CALayer* _Nonnull tqlViewGetLayer(TqlObject* _Nonnull obj);
 
 // Color
 void tqlColorYellowCreate(TqlObject* _Nonnull obj);
