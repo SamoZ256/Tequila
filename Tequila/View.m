@@ -24,6 +24,8 @@
     return self;
 }
 
+@end
+
 void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame) {
     (void)[[__TqlView alloc] initWithObject:obj frame:frame];
 }
@@ -31,5 +33,3 @@ void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame) {
 CALayer* _Nonnull tqlViewGetLayer(TqlObject* _Nonnull obj) {
     return [obj->impl layer];
 }
-
-@end

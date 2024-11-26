@@ -23,9 +23,6 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // HACK
-    //self.view.layer.backgroundColor = [[UIColor redColor] CGColor];
-    
     g_context.viewControllerViewDidLoadCallback(self->obj);
 }
 
