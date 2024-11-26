@@ -7,6 +7,8 @@
 
 #include "View.h"
 
+static TqlObject* lastView = NULL;
+
 @interface __TqlView ()
 
 @end
@@ -16,7 +18,9 @@
 }
 
 - (instancetype)initWithObject:(TqlObject*)obj frame:(CGRect)frame {
+    lastView = obj;
     self = [super initWithFrame:frame];
+    lastView = NULL;
     
     self->obj = obj;
     obj->impl = self;
@@ -24,8 +28,9 @@
     return self;
 }
 
-- (Class)layerClass {
-    return g_context.viewGetLayerClassCallback(self->obj);
++ (Class)layerClass {
+    // This method is (luckily) called during view initialization, so we can retrieve the view from @ref lastView
+    return g_context.viewGetLayerClassCallback(lastView);
 }
 
 @end
