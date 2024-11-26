@@ -43,3 +43,4 @@ CALayer* _Nonnull tqlViewGetLayer(TqlObject* _Nonnull obj) { return nil; }
 
 // Color
 void tqlColorYellowCreate(TqlObject* _Nonnull obj) {}
+CGColorRef tqlColorCGColor(TqlObject* _Nonnull obj) { return NULL; }

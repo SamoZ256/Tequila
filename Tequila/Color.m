@@ -10,3 +10,7 @@
 void tqlColorYellowCreate(TqlObject* _Nonnull obj) {
     obj->impl = [UIColor yellowColor];
 }
+
+CGColorRef tqlColorCGColor(TqlObject* _Nonnull obj) {
+    return [obj->impl CGColor];
+}
