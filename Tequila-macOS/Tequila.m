@@ -28,6 +28,9 @@ void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaun
 void tqlSetViewControllerViewDidLoadCallback(PFN_tqlViewControllerViewDidLoad _Nonnull callback) {}
 void tqlSetViewControllerLoadViewCallback(PFN_tqlViewControllerLoadView _Nonnull callback) {}
 
+// View
+void tqlSetViewGetLayerClassCallback(PFN_tqlViewGetLayerClass _Nonnull callback) {}
+
 // API
 
 // Application
@@ -40,7 +43,8 @@ void tqlViewControllerSetView(TqlObject* _Nonnull obj, TqlObject* _Nonnull view)
 // View
 void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame) {}
 CALayer* _Nonnull tqlViewGetLayer(TqlObject* _Nonnull obj) { return nil; }
+void tqlViewSetLayer(TqlObject* _Nonnull obj, CALayer* _Nonnull layer) {}
 
 // Color
 void tqlColorYellowCreate(TqlObject* _Nonnull obj) {}
-CGColorRef tqlColorCGColor(TqlObject* _Nonnull obj) { return NULL; }
+CGColorRef _Nonnull tqlColorCGColor(TqlObject* _Nonnull obj) { return NULL; }

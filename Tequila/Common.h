@@ -44,6 +44,7 @@ typedef struct __TqlContext {
     PFN_tqlApplicationDidFinishLaunching _Nullable applicationDidFinishLaunchingCallback;
     PFN_tqlViewControllerViewDidLoad _Nullable viewControllerViewDidLoadCallback;
     PFN_tqlViewControllerLoadView _Nullable viewControllerLoadViewCallback;
+    viewGetLayerClassCallback;
 } __TqlContext;
 
 extern __TqlContext g_context;

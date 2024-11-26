@@ -7,7 +7,7 @@
 
 #include "Common.h"
 
-__TqlContext g_context = {NULL, NULL, NULL, NULL, NULL};
+__TqlContext g_context = {NULL, NULL, NULL, NULL, NULL, NULL};
 
 TqlObject* _Nonnull __tqlObjectAllocate(void) {
     TqlObject* obj = malloc(sizeof(TqlObject));
@@ -53,4 +53,9 @@ void tqlSetViewControllerViewDidLoadCallback(PFN_tqlViewControllerViewDidLoad _N
 
 void tqlSetViewControllerLoadViewCallback(PFN_tqlViewControllerLoadView _Nonnull callback) {
     g_context.viewControllerLoadViewCallback = callback;
+}
+
+// View
+void tqlSetViewGetLayerClassCallback(PFN_tqlViewGetLayerClass _Nonnull callback) {
+    g_context.viewGetLayerClassCallback = callback;
 }

@@ -24,6 +24,10 @@
     return self;
 }
 
+- (Class)layerClass {
+    return g_context.viewGetLayerClassCallback(self->obj);
+}
+
 @end
 
 void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame) {
@@ -32,4 +36,13 @@ void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame) {
 
 CALayer* _Nonnull tqlViewGetLayer(TqlObject* _Nonnull obj) {
     return [obj->impl layer];
+}
+
+void tqlViewSetLayer(TqlObject* _Nonnull obj, CALayer* _Nonnull layer) {
+    if ([[obj->impl layer] class] != [layer class]) {
+        // TODO: recreate the whole view
+        NSLog(@"error: cannot change view's layer");
+    }
+    
+    // TODO: copy layer properties
 }
