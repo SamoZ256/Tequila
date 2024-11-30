@@ -56,6 +56,8 @@ void tqlViewControllerSetView(TqlObject* _Nonnull obj, TqlObject* _Nonnull view)
 void tqlViewCreate(TqlObject* _Nonnull obj, CGRect frame);
 CALayer* _Nonnull tqlViewGetLayer(TqlObject* _Nonnull obj);
 void tqlViewSetLayer(TqlObject* _Nonnull obj, CALayer* _Nonnull layer);
+CGRect tqlViewGetFrame(TqlObject* _Nonnull obj);
+void tqlViewSetFrame(TqlObject* _Nonnull obj, CGRect frame);
 
 // Color
 void tqlColorYellowCreate(TqlObject* _Nonnull obj);

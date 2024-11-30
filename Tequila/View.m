@@ -51,3 +51,11 @@ void tqlViewSetLayer(TqlObject* _Nonnull obj, CALayer* _Nonnull layer) {
     
     // TODO: copy layer properties
 }
+
+CGRect tqlViewGetFrame(TqlObject* _Nonnull obj) {
+    return [obj->impl frame];
+}
+
+void tqlViewSetFrame(TqlObject* _Nonnull obj, CGRect frame) {
+    [obj->impl setFrame:frame];
+}
