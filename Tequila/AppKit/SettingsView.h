@@ -12,4 +12,8 @@
 
 UIButton* createSettingsButton(void);
 
+@interface SettingsViewController : UIViewController
+
+@end
+
 #endif /* SettingsView_h */

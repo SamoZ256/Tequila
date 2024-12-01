@@ -20,8 +20,10 @@
         self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
         
         // Set the root view controller
-        __TqlViewController* rootViewController = [[__TqlViewController alloc] init];
-        self.window.rootViewController = rootViewController;
+        // TODO: uncomment
+        __TqlViewController* mainViewController = [[__TqlViewController alloc] init];
+        //UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+        self.window.rootViewController = mainViewController;//navController;
 
         [self.window makeKeyAndVisible];
     }

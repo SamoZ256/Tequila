@@ -19,6 +19,7 @@ UIButton* createSettingsButton(void) {
     }
     
     // TODO: make the position adjustable
+    settingsButton.userInteractionEnabled = YES;
     settingsButton.tintColor = [UIColor systemBlueColor];
     settingsButton.backgroundColor = [UIColor blackColor];
     settingsButton.frame = CGRectMake(SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_SIZE, SETTINGS_BUTTON_SIZE);
@@ -27,3 +28,32 @@ UIButton* createSettingsButton(void) {
     
     return settingsButton;
 }
+
+@implementation SettingsViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"Settings";
+
+    // TODO: don't hardcode the frames
+    
+    // Back button
+    UIButton* backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [backButton setTitle:@"< Back" forState:UIControlStateNormal];
+    backButton.frame = CGRectMake(20, 50, 100, 44);
+    backButton.titleLabel.font = [UIFont systemFontOfSize:18];
+    [backButton addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+    
+    // Settings label
+    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 300, 50)];
+    label.text = @"Settings";
+    label.font = [UIFont systemFontOfSize:24];
+    [self.view addSubview:label];
+}
+
+- (void)backButtonTapped {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+@end
