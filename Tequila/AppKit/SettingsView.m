@@ -21,7 +21,7 @@ UIButton* createSettingsButton(void) {
     // TODO: make the position adjustable
     settingsButton.userInteractionEnabled = YES;
     settingsButton.tintColor = [UIColor systemBlueColor];
-    settingsButton.backgroundColor = [UIColor blackColor];
+    settingsButton.backgroundColor = [UIColor systemBackgroundColor];
     settingsButton.frame = CGRectMake(SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_SIZE, SETTINGS_BUTTON_SIZE);
     settingsButton.layer.cornerRadius = SETTINGS_BUTTON_SIZE / 2;
     settingsButton.clipsToBounds = YES;
@@ -34,6 +34,8 @@ UIButton* createSettingsButton(void) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Settings";
+    
+    self.view.backgroundColor = [UIColor systemBackgroundColor];
 
     // TODO: don't hardcode the frames
     
