@@ -7,10 +7,14 @@
 
 #include "Settings.h"
 
-__TqlSetings g_settings = {false};
+#import <GameController/GameController.h>
+
+__TqlSetings g_settings = {false, false};
 
 static const uint32_t SETTINGS_BUTTON_OFFSET = 16;
 static const uint32_t SETTINGS_BUTTON_SIZE = 64;
+
+static GCVirtualController* virtualController = nil;
 
 UIButton* createSettingsButton(void) {
     UIButton* settingsButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -21,7 +25,6 @@ UIButton* createSettingsButton(void) {
     }
     
     // TODO: make the position adjustable
-    settingsButton.userInteractionEnabled = YES;
     settingsButton.tintColor = [UIColor systemBlueColor];
     settingsButton.backgroundColor = [UIColor systemBackgroundColor];
     settingsButton.frame = CGRectMake(SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_SIZE, SETTINGS_BUTTON_SIZE);
@@ -29,6 +32,17 @@ UIButton* createSettingsButton(void) {
     settingsButton.clipsToBounds = YES;
     
     return settingsButton;
+}
+
+static void createVirtualController(void) {
+    if (virtualController)
+        return;
+    
+    GCVirtualControllerConfiguration* config = [[GCVirtualControllerConfiguration alloc] init];
+    // TODO: make the elements costumizable
+    config.elements = [NSSet setWithObjects:GCInputButtonA, GCInputButtonB, GCInputButtonX, GCInputButtonY, GCInputLeftThumbstick, GCInputRightThumbstick, GCInputLeftShoulder, GCInputRightShoulder, nil];
+    
+    virtualController = [[GCVirtualController alloc] initWithConfiguration:config];
 }
 
 @implementation __TqlSettingsViewController
@@ -56,7 +70,7 @@ UIButton* createSettingsButton(void) {
     [self.view addSubview:label];
     
     // Lock pointer on hide switch
-    UILabel* lockPointerOnHideLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, 200, 60)];
+    UILabel* lockPointerOnHideLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, 400, 30)];
     lockPointerOnHideLabel.text = @"Lock pointer when cursor is hidden";
     [self.view addSubview:lockPointerOnHideLabel];
     
@@ -65,14 +79,42 @@ UIButton* createSettingsButton(void) {
     lockPointerOnHideSwitch.on = g_settings.lockPointerOnHide;
     
     [lockPointerOnHideSwitch addTarget:self action:@selector(lockPointerOnHideChanged:) forControlEvents:UIControlEventValueChanged];
+    [self lockPointerOnHideChanged:lockPointerOnHideSwitch];
+    
+    // Virtual controller
+    UILabel* virtualControllerLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 400, 30)];
+    virtualControllerLabel.text = @"Display on-screen controller";
+    [self.view addSubview:virtualControllerLabel];
+    
+    UISwitch* virtualControllerSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(1100, 200, 0, 0)];
+    [self.view addSubview:virtualControllerSwitch];
+    virtualControllerSwitch.on = g_settings.virtualPointerEnabled;
+    
+    [virtualControllerSwitch addTarget:self action:@selector(virtualPointerChanged:) forControlEvents:UIControlEventValueChanged];
+    [self virtualPointerChanged:virtualControllerSwitch];
 }
 
 - (void)backButtonTapped {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)lockPointerOnHideChanged:(UISwitch *)sender {
+- (void)lockPointerOnHideChanged:(UISwitch*)sender {
     g_settings.lockPointerOnHide = sender.isOn;
+}
+
+- (void)virtualPointerChanged:(UISwitch*)sender {
+    g_settings.virtualPointerEnabled = sender.isOn;
+    
+    if (g_settings.virtualPointerEnabled) {
+        createVirtualController();
+        
+        [virtualController connectWithReplyHandler:^(NSError* error) {
+            if (error)
+                NSLog(@"%@", error.localizedDescription);
+        }];
+    } else {
+        [virtualController disconnect];
+    }
 }
 
 @end

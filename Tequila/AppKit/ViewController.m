@@ -6,6 +6,7 @@
 //
 
 #include "ViewController.h"
+
 #include "View.h"
 #include "Settings.h"
 
@@ -31,17 +32,19 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
     
     g_context.viewControllerViewDidLoadCallback(self->obj);
     
-    self.view.userInteractionEnabled = YES;
-    
-    // Create the settings button
-    // TODO: make this toggable
     if (self->isDefault) {
-        UIButton* settingsButton = createSettingsButton();
-        
-        [settingsButton addTarget:self action:@selector(settingsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self.view addSubview:settingsButton];
+        [self setupMainViewController];
     }
+}
+
+- (void)setupMainViewController {
+    // Settings button
+    // TODO: make this toggable
+    UIButton* settingsButton = createSettingsButton();
+    
+    [settingsButton addTarget:self action:@selector(settingsButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:settingsButton];
 }
 
 - (void)settingsButtonTapped {

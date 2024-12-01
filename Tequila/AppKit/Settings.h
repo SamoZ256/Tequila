@@ -12,6 +12,7 @@
 
 typedef struct __TqlSetings {
     bool lockPointerOnHide;
+    bool virtualPointerEnabled;
 } __TqlSetings;
 
 extern __TqlSetings g_settings;
