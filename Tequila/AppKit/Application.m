@@ -11,7 +11,9 @@
 
 @end
 
-@implementation __TqlApplicationDelegate
+@implementation __TqlApplicationDelegate {
+    bool isDefault;
+}
 
 DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultAppDelegateCreateCallback)
 

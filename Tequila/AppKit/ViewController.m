@@ -7,12 +7,15 @@
 
 #include "ViewController.h"
 #include "View.h"
+#include "SettingsView.h"
 
 @interface __TqlViewController ()
 
 @end
 
-@implementation __TqlViewController
+@implementation __TqlViewController {
+    bool isDefault;
+}
 
 DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
 
@@ -24,6 +27,14 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
     [super viewDidLoad];
     
     g_context.viewControllerViewDidLoadCallback(self->obj);
+    
+    // Create the settings button
+    // TODO: make this toggable
+    if (self->isDefault) {
+        UIButton* settingsButton = createSettingsButton();
+        
+        [self.view addSubview:settingsButton];
+    }
 }
 
 @end

@@ -35,6 +35,8 @@ DEFINE_INIT_WITH_OBJECT \
     self->obj->host = g_context.defaultCreateCallback(self->obj); \
     self->obj->impl = self; \
 \
+    self->isDefault = true;\
+\
     return self; \
 }
 
