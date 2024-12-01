@@ -41,9 +41,9 @@ void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreat
 
 // Methods
 
-// Application
-void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {
-    g_context.applicationDidFinishLaunchingCallback = callback;
+// Application delegate
+void tqlSetAppDelegateApplicationDidFinishLaunchingCallback(PFN_tqlAppDelegateApplicationDidFinishLaunching _Nonnull callback) {
+    g_context.appDelegateApplicationDidFinishLaunchingCallback = callback;
 }
 
 // View controller

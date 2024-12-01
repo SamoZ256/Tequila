@@ -41,7 +41,7 @@ DEFINE_INIT_WITH_OBJECT \
 typedef struct __TqlContext {
     PFN_tqlDefaultAppDelegateCreate _Nullable defaultAppDelegateCreateCallback;
     PFN_tqlDefaultViewControllerCreate _Nullable defaultViewControllerCreateCallback;
-    PFN_tqlApplicationDidFinishLaunching _Nullable applicationDidFinishLaunchingCallback;
+    PFN_tqlAppDelegateApplicationDidFinishLaunching _Nullable appDelegateApplicationDidFinishLaunchingCallback;
     PFN_tqlViewControllerViewDidLoad _Nullable viewControllerViewDidLoadCallback;
     PFN_tqlViewControllerLoadView _Nullable viewControllerLoadViewCallback;
     PFN_tqlViewGetLayerClass _Nullable viewGetLayerClassCallback;

@@ -22,7 +22,7 @@ void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreat
 // Methods
 
 // Application
-void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback) {}
+void tqlSetAppDelegateApplicationDidFinishLaunchingCallback(PFN_tqlAppDelegateApplicationDidFinishLaunching _Nonnull callback) {}
 
 // View controller
 void tqlSetViewControllerViewDidLoadCallback(PFN_tqlViewControllerViewDidLoad _Nonnull callback) {}

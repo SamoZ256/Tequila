@@ -24,12 +24,12 @@ typedef id _Nonnull (*PFN_tqlDefaultViewControllerCreate)(TqlObject* _Nonnull ob
 void tqlSetDefaultAppDelegateCreateCallback(PFN_tqlDefaultAppDelegateCreate _Nonnull callback);
 void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreate _Nonnull callback);
 
-// -------- AppKit --------
+// Methods
 
-// Application
-typedef void (*PFN_tqlApplicationDidFinishLaunching)(TqlObject* _Nonnull obj); // TODO: include options as a parameter
+// Application delegate
+typedef void (*PFN_tqlAppDelegateApplicationDidFinishLaunching)(TqlObject* _Nonnull obj); // TODO: include options as a parameter
 
-void tqlSetApplicationDidFinishLaunchingCallback(PFN_tqlApplicationDidFinishLaunching _Nonnull callback);
+void tqlSetAppDelegateApplicationDidFinishLaunchingCallback(PFN_tqlAppDelegateApplicationDidFinishLaunching _Nonnull callback);
 
 // View controller
 typedef void (*PFN_tqlViewControllerViewDidLoad)(TqlObject* _Nonnull obj);
@@ -43,7 +43,7 @@ typedef Class _Nonnull (*PFN_tqlViewGetLayerClass)(TqlObject* _Nonnull obj);
 
 void tqlSetViewGetLayerClassCallback(PFN_tqlViewGetLayerClass _Nonnull callback);
 
-// API
+// -------- AppKit --------
 
 // Application
 int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]);

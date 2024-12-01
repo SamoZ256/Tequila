@@ -16,7 +16,7 @@
 DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultAppDelegateCreateCallback)
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
-    g_context.applicationDidFinishLaunchingCallback(self->obj);
+    g_context.appDelegateApplicationDidFinishLaunchingCallback(self->obj);
     
     return YES;
 }
