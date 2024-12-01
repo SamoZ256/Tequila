@@ -13,7 +13,7 @@
 TqlObject* _Nonnull tqlObjectCreate(id _Nonnull host) { return NULL; }
 void tqlObjectFree(TqlObject* _Nonnull obj) {}
 
-// Callbacks
+// -------- Callbacks --------
 
 // Default create
 void tqlSetDefaultAppDelegateCreateCallback(PFN_tqlDefaultAppDelegateCreate _Nonnull callback) {}
@@ -31,7 +31,7 @@ void tqlSetViewControllerLoadViewCallback(PFN_tqlViewControllerLoadView _Nonnull
 // View
 void tqlSetViewGetLayerClassCallback(PFN_tqlViewGetLayerClass _Nonnull callback) {}
 
-// API
+// -------- AppKit --------
 
 // Application
 int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]) { return 0; }

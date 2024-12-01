@@ -15,7 +15,7 @@ typedef struct TqlObject {
 TqlObject* _Nonnull tqlObjectCreate(id _Nonnull host);
 void tqlObjectFree(TqlObject* _Nonnull obj);
 
-// Callbacks
+// -------- Callbacks --------
 
 // Default create
 typedef id _Nonnull (*PFN_tqlDefaultAppDelegateCreate)(TqlObject* _Nonnull obj);
@@ -24,7 +24,7 @@ typedef id _Nonnull (*PFN_tqlDefaultViewControllerCreate)(TqlObject* _Nonnull ob
 void tqlSetDefaultAppDelegateCreateCallback(PFN_tqlDefaultAppDelegateCreate _Nonnull callback);
 void tqlSetDefaultViewControllerCreateCallback(PFN_tqlDefaultViewControllerCreate _Nonnull callback);
 
-// Methods
+// -------- AppKit --------
 
 // Application
 typedef void (*PFN_tqlApplicationDidFinishLaunching)(TqlObject* _Nonnull obj); // TODO: include options as a parameter
