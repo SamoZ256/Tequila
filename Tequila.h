@@ -59,6 +59,10 @@ void tqlViewSetLayer(TqlObject* _Nonnull obj, CALayer* _Nonnull layer);
 CGRect tqlViewGetFrame(TqlObject* _Nonnull obj);
 void tqlViewSetFrame(TqlObject* _Nonnull obj, CGRect frame);
 
+// Cursor
+void tqlCursorHide(void);
+void tqlCursorUnhide(void);
+
 // Color
 void tqlColorYellowCreate(TqlObject* _Nonnull obj);
 CGColorRef _Nonnull tqlColorCGColor(TqlObject* _Nonnull obj);

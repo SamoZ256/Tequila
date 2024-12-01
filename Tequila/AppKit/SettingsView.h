@@ -12,7 +12,7 @@
 
 UIButton* createSettingsButton(void);
 
-@interface SettingsViewController : UIViewController
+@interface __TqlSettingsViewController : UIViewController
 
 @end
 

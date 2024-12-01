@@ -24,6 +24,7 @@
         __TqlViewController* mainViewController = [[__TqlViewController alloc] init];
         //UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
         self.window.rootViewController = mainViewController;//navController;
+        __tqlMainViewController = mainViewController;
 
         [self.window makeKeyAndVisible];
     }

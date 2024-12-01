@@ -29,7 +29,7 @@ UIButton* createSettingsButton(void) {
     return settingsButton;
 }
 
-@implementation SettingsViewController
+@implementation __TqlSettingsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

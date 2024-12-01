@@ -9,6 +9,9 @@
 #include "View.h"
 #include "SettingsView.h"
 
+__TqlViewController* __tqlMainViewController = nil;
+bool __tqlPrefersPointerLocked = false;
+
 @interface __TqlViewController ()
 
 @end
@@ -43,9 +46,13 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
 
 - (void)settingsButtonTapped {
     // TODO: make this a navigation view
-    SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
+    __TqlSettingsViewController* settingsVC = [[__TqlSettingsViewController alloc] init];
     settingsVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:settingsVC animated:YES completion:nil];
+}
+
+- (BOOL)prefersPointerLocked {
+    return __tqlPrefersPointerLocked;
 }
 
 @end

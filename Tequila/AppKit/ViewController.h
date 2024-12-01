@@ -16,4 +16,7 @@
 
 @end
 
+extern __TqlViewController* _Nonnull __tqlMainViewController;
+extern bool __tqlPrefersPointerLocked;
+
 #endif /* ViewController_h */
