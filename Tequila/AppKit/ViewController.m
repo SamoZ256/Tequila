@@ -7,7 +7,7 @@
 
 #include "ViewController.h"
 #include "View.h"
-#include "SettingsView.h"
+#include "Settings.h"
 
 __TqlViewController* __tqlMainViewController = nil;
 bool __tqlPrefersPointerLocked = false;
@@ -52,7 +52,10 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultViewControllerCreateCallback)
 }
 
 - (BOOL)prefersPointerLocked {
-    return __tqlPrefersPointerLocked;
+    if (g_settings.lockPointerOnHide)
+        return __tqlPrefersPointerLocked;
+    else
+        return false;
 }
 
 @end

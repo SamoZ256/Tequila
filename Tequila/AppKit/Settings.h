@@ -10,6 +10,12 @@
 
 #include "Common.h"
 
+typedef struct __TqlSetings {
+    bool lockPointerOnHide;
+} __TqlSetings;
+
+extern __TqlSetings g_settings;
+
 UIButton* createSettingsButton(void);
 
 @interface __TqlSettingsViewController : UIViewController

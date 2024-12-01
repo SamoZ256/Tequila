@@ -5,7 +5,9 @@
 //  Created by Samuliak on 01/12/2024.
 //
 
-#include "SettingsView.h"
+#include "Settings.h"
+
+__TqlSetings g_settings = {false};
 
 static const uint32_t SETTINGS_BUTTON_OFFSET = 16;
 static const uint32_t SETTINGS_BUTTON_SIZE = 64;
@@ -52,10 +54,25 @@ UIButton* createSettingsButton(void) {
     label.text = @"Settings";
     label.font = [UIFont systemFontOfSize:24];
     [self.view addSubview:label];
+    
+    // Lock pointer on hide switch
+    UILabel* lockPointerOnHideLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, 200, 60)];
+    lockPointerOnHideLabel.text = @"Lock pointer when cursor is hidden";
+    [self.view addSubview:lockPointerOnHideLabel];
+    
+    UISwitch* lockPointerOnHideSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(1100, 150, 0, 0)];
+    [self.view addSubview:lockPointerOnHideSwitch];
+    lockPointerOnHideSwitch.on = g_settings.lockPointerOnHide;
+    
+    [lockPointerOnHideSwitch addTarget:self action:@selector(lockPointerOnHideChanged:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)backButtonTapped {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)lockPointerOnHideChanged:(UISwitch *)sender {
+    g_settings.lockPointerOnHide = sender.isOn;
 }
 
 @end

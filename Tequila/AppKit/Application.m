@@ -11,6 +11,7 @@
 
 @end
 
+// TODO: save settings to file on exit
 @implementation __TqlApplicationDelegate {
     bool isDefault;
 }
@@ -18,6 +19,8 @@
 DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultAppDelegateCreateCallback)
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions {
+    // TODO: load settings from file
+    
     g_context.appDelegateApplicationDidFinishLaunchingCallback(self->obj);
     
     return YES;
