@@ -40,7 +40,7 @@ static void createVirtualController(void) {
     
     GCVirtualControllerConfiguration* config = [[GCVirtualControllerConfiguration alloc] init];
     // TODO: make the elements costumizable
-    config.elements = [NSSet setWithObjects:GCInputButtonA, GCInputButtonB, GCInputButtonX, GCInputButtonY, GCInputLeftThumbstick, GCInputRightThumbstick, GCInputLeftShoulder, GCInputRightShoulder, nil];
+    config.elements = [NSSet setWithObjects:GCInputButtonA, GCInputButtonB, GCInputButtonX, GCInputButtonY, GCInputLeftThumbstick, GCInputRightThumbstick, GCInputLeftShoulder, GCInputRightShoulder, GCInputLeftTrigger, GCInputRightTrigger, nil];
     
     virtualController = [[GCVirtualController alloc] initWithConfiguration:config];
 }
