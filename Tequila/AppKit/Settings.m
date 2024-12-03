@@ -11,7 +11,7 @@
 
 __TqlSetings g_settings = {false, false};
 
-static const uint32_t SETTINGS_BUTTON_OFFSET = 16;
+static const uint32_t SETTINGS_BUTTON_POSITION = 16;
 static const uint32_t SETTINGS_BUTTON_SIZE = 64;
 
 static GCVirtualController* virtualController = nil;
@@ -25,9 +25,9 @@ UIButton* createSettingsButton(void) {
     }
     
     // TODO: make the position adjustable
+    settingsButton.frame = CGRectMake(SETTINGS_BUTTON_POSITION, SETTINGS_BUTTON_POSITION, SETTINGS_BUTTON_SIZE, SETTINGS_BUTTON_SIZE);
     settingsButton.tintColor = [UIColor systemBlueColor];
     settingsButton.backgroundColor = [UIColor systemBackgroundColor];
-    settingsButton.frame = CGRectMake(SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_OFFSET, SETTINGS_BUTTON_SIZE, SETTINGS_BUTTON_SIZE);
     settingsButton.layer.cornerRadius = SETTINGS_BUTTON_SIZE / 2;
     settingsButton.clipsToBounds = YES;
     
@@ -57,6 +57,7 @@ static void createVirtualController(void) {
     
     // Back button
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    backButton.translatesAutoresizingMaskIntoConstraints = NO;
     [backButton setTitle:@"< Back" forState:UIControlStateNormal];
     backButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [backButton addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
@@ -64,6 +65,7 @@ static void createVirtualController(void) {
     
     // Settings label
     UILabel* label = [[UILabel alloc] init];
+    label.translatesAutoresizingMaskIntoConstraints = NO;
     label.text = @"Settings";
     label.font = [UIFont systemFontOfSize:24];
     [self.view addSubview:label];
