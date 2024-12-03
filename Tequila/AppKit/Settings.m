@@ -58,23 +58,27 @@ static void createVirtualController(void) {
     // Back button
     UIButton* backButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [backButton setTitle:@"< Back" forState:UIControlStateNormal];
-    backButton.frame = CGRectMake(20, 50, 100, 44);
     backButton.titleLabel.font = [UIFont systemFontOfSize:18];
     [backButton addTarget:self action:@selector(backButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     
     // Settings label
-    UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(50, 100, 300, 50)];
+    UILabel* label = [[UILabel alloc] init];
     label.text = @"Settings";
     label.font = [UIFont systemFontOfSize:24];
     [self.view addSubview:label];
     
-    // Lock pointer on hide switch
-    UILabel* lockPointerOnHideLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 150, 400, 30)];
+    // Lock pointer on hide
+    
+    // Label
+    UILabel* lockPointerOnHideLabel = [[UILabel alloc] init];
+    lockPointerOnHideLabel.translatesAutoresizingMaskIntoConstraints = NO;
     lockPointerOnHideLabel.text = @"Lock pointer when cursor is hidden";
     [self.view addSubview:lockPointerOnHideLabel];
     
-    UISwitch* lockPointerOnHideSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(1100, 150, 0, 0)];
+    // Switch
+    UISwitch* lockPointerOnHideSwitch = [[UISwitch alloc] init];
+    lockPointerOnHideSwitch.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:lockPointerOnHideSwitch];
     lockPointerOnHideSwitch.on = g_settings.lockPointerOnHide;
     
@@ -82,16 +86,52 @@ static void createVirtualController(void) {
     [self lockPointerOnHideChanged:lockPointerOnHideSwitch];
     
     // Virtual controller
-    UILabel* virtualControllerLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 400, 30)];
+    
+    // Label
+    UILabel* virtualControllerLabel = [[UILabel alloc] init];
+    virtualControllerLabel.translatesAutoresizingMaskIntoConstraints = NO;
     virtualControllerLabel.text = @"Display on-screen controller";
     [self.view addSubview:virtualControllerLabel];
     
-    UISwitch* virtualControllerSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(1100, 200, 0, 0)];
+    // Switch
+    UISwitch* virtualControllerSwitch = [[UISwitch alloc] init];
+    virtualControllerSwitch.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:virtualControllerSwitch];
     virtualControllerSwitch.on = g_settings.virtualPointerEnabled;
     
     [virtualControllerSwitch addTarget:self action:@selector(virtualPointerChanged:) forControlEvents:UIControlEventValueChanged];
     [self virtualPointerChanged:virtualControllerSwitch];
+    
+    // Set up Auto Layout constraints
+    [NSLayoutConstraint activateConstraints:@[
+        // Back button
+        [backButton.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:20],
+        [backButton.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant:10],
+        
+        // Settings label
+        [label.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:20],
+        [label.centerYAnchor constraintEqualToAnchor:backButton.bottomAnchor constant:20],
+        
+        // Lock pointer on hide
+        
+        // Label
+        [lockPointerOnHideLabel.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:20],
+        [lockPointerOnHideLabel.centerYAnchor constraintEqualToAnchor:lockPointerOnHideSwitch.centerYAnchor],
+        
+        // Switch
+        [lockPointerOnHideSwitch.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-20],
+        [lockPointerOnHideSwitch.topAnchor constraintEqualToAnchor:label.bottomAnchor constant:20],
+        
+        // Virtual controller
+        
+        // Label
+        [virtualControllerLabel.leadingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.leadingAnchor constant:20],
+        [virtualControllerLabel.centerYAnchor constraintEqualToAnchor:virtualControllerSwitch.centerYAnchor],
+        
+        // Switch
+        [virtualControllerSwitch.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor constant:-20],
+        [virtualControllerSwitch.topAnchor constraintEqualToAnchor:lockPointerOnHideSwitch.bottomAnchor constant:20],
+    ]];
 }
 
 - (void)backButtonTapped {
