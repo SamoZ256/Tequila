@@ -27,18 +27,17 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultAppDelegateCreateCallback)
 }
 
 - (UISceneConfiguration*)application:(UIApplication*)application configurationForConnectingSceneSession:(UISceneSession*)connectingSceneSession options:(UISceneConnectionOptions*)options {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
     return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
 - (void)application:(UIApplication*)application didDiscardSceneSessions:(NSSet<UISceneSession*>*)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
 
 @end
+
+void tqlApplicationCreateShared(TqlObject* _Nonnull obj) {
+    obj->impl = [UIApplication sharedApplication];
+}
 
 int tqlApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) {
     return UIApplicationMain(argc, argv, nil, NSStringFromClass([__TqlApplicationDelegate class]));

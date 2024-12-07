@@ -34,6 +34,7 @@ void tqlSetViewGetLayerClassCallback(PFN_tqlViewGetLayerClass _Nonnull callback)
 // -------- AppKit --------
 
 // Application
+void tqlApplicationCreateShared(TqlObject* _Nonnull obj) {}
 int tqlApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) { return 0; }
 
 // View controller
@@ -52,5 +53,5 @@ void tqlCursorHide(void) {}
 void tqlCursorUnhide(void) {}
 
 // Color
-void tqlColorYellowCreate(TqlObject* _Nonnull obj) {}
+void tqlColorCreateYellow(TqlObject* _Nonnull obj) {}
 CGColorRef _Nonnull tqlColorCGColor(TqlObject* _Nonnull obj) { return NULL; }

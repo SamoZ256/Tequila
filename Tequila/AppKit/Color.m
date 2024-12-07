@@ -7,7 +7,7 @@
 
 #import "Common.h"
 
-void tqlColorYellowCreate(TqlObject* _Nonnull obj) {
+void tqlColorCreateYellow(TqlObject* _Nonnull obj) {
     obj->impl = [UIColor yellowColor];
 }
 
