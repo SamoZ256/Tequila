@@ -40,6 +40,6 @@ DEFINE_INIT_WITH_OBJECT_AND_INIT(defaultAppDelegateCreateCallback)
 
 @end
 
-int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]) {
+int tqlApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]) {
     return UIApplicationMain(argc, argv, nil, NSStringFromClass([__TqlApplicationDelegate class]));
 }

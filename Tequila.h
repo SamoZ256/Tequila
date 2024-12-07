@@ -46,7 +46,7 @@ void tqlSetViewGetLayerClassCallback(PFN_tqlViewGetLayerClass _Nonnull callback)
 // -------- AppKit --------
 
 // Application
-int tqlApplicarionMain(int argc, const char* _Nonnull argv[_Nonnull]);
+int tqlApplicationMain(int argc, const char* _Nonnull argv[_Nonnull]);
 
 // View controller
 void tqlViewControllerCreate(TqlObject* _Nonnull obj);
