@@ -53,5 +53,19 @@ void tqlCursorHide(void) {}
 void tqlCursorUnhide(void) {}
 
 // Color
+void tqlColorCreateBlack(TqlObject* _Nonnull obj) {}
+void tqlColorCreateDarkGray(TqlObject* _Nonnull obj) {}
+void tqlColorCreateLightGray(TqlObject* _Nonnull obj) {}
+void tqlColorCreateWhite(TqlObject* _Nonnull obj) {}
+void tqlColorCreateGray(TqlObject* _Nonnull obj) {}
+void tqlColorCreateRed(TqlObject* _Nonnull obj) {}
+void tqlColorCreateGreen(TqlObject* _Nonnull obj) {}
+void tqlColorCreateBlue(TqlObject* _Nonnull obj) {}
+void tqlColorCreateCyan(TqlObject* _Nonnull obj) {}
 void tqlColorCreateYellow(TqlObject* _Nonnull obj) {}
+void tqlColorCreateMagenta(TqlObject* _Nonnull obj) {}
+void tqlColorCreateOrange(TqlObject* _Nonnull obj) {}
+void tqlColorCreatePurple(TqlObject* _Nonnull obj) {}
+void tqlColorCreateBrown(TqlObject* _Nonnull obj) {}
+void tqlColorCreateClear(TqlObject* _Nonnull obj) {}
 CGColorRef _Nonnull tqlColorCGColor(TqlObject* _Nonnull obj) { return NULL; }
